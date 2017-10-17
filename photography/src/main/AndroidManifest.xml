@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.loser">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:name=".photograph.application.BaseApplication"
         android:allowBackup="true"
