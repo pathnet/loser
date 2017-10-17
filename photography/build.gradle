@@ -35,16 +35,16 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file('pathnetkey.jks')
-            storePassword '4s3c2a1p'
-            keyAlias 'pathnet'
-            keyPassword '4s3c2a1p'
+            storeFile file('loserkey.jks')
+            storePassword 'loser12356'
+            keyAlias 'loser'
+            keyPassword 'loser12356'
         }
         release {
-            storeFile file('pathnetkey.jks')
-            storePassword '4s3c2a1p'
-            keyAlias 'pathnet'
-            keyPassword '4s3c2a1p'
+            storeFile file('loserkey.jks')
+            storePassword 'loser12356'
+            keyAlias 'loser'
+            keyPassword 'loser12356'
         }
     }
     buildTypes {
