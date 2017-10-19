@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">Loser</string>
-    <string name="call_phone">没有拨打电话的权限</string>
-    <string name="request_data">请求数据中,请稍等...</string>
-</resources>
