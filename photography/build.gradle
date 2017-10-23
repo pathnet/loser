@@ -91,6 +91,19 @@ android {
         debug {
             signingConfig signingConfigs.release
         }
+
+        sourceSets {
+            main {
+                manifest.srcFile 'AndroidManifest.xml'
+                java.srcDirs = ['src']
+                resources.srcDirs = ['src']
+                aidl.srcDirs = ['src']
+                renderscript.srcDirs = ['src']
+                res.srcDirs = ['res']
+                assets.srcDirs = ['assets']
+            }
+        }
+
     }
     productFlavors {
     }
@@ -140,4 +153,5 @@ dependencies {
     compile 'com.chen.wakehao.library:bottom-navigation-bar:1.0.0'
     compile 'com.afollestad.material-dialogs:core:0.9.4.7'
     compile 'com.afollestad.material-dialogs:commons:0.9.4.7'
+    compile project(':XAndroidFrawork:xfragwork')
 }
