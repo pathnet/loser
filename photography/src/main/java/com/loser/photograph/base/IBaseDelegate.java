@@ -25,7 +25,6 @@ public interface IBaseDelegate<V extends IBaseView, P extends BasePresenter<V>> 
      */
     @NonNull
     P createPresenter();
-
     /**
      * 获取presenter
      */

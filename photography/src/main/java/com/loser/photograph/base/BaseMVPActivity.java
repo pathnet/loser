@@ -15,27 +15,20 @@ public abstract class BaseMVPActivity<V extends IBaseView, P extends BasePresent
         super.onCreate(savedInstanceState);
         mPresenter = createPresenter();
         mContext = this;
-        setContentView(setLayoutId());
+        setContentView(getLayoutId());
+//        SystemBarTintManager tintManager=new SystemBarTintManager(this);
+//        tintManager.setStatusBarTintResource(R.color.colorPrimaryDark);
+//        tintManager.setStatusBarTintEnabled(true);
         ButterKnife.bind(this);
-        setListener();
+        initView();
+        initData();
+        initListener();
     }
 
     @Override
     public P getPresenter() {
         return mPresenter;
     }
-
-    /**
-     * 设置布局Id
-     *
-     * @return
-     */
-    protected abstract int setLayoutId();
-
-    /**
-     * 监听方法
-     */
-    protected abstract void setListener();
 
     @Override
     protected void onDestroy() {

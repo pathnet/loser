@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.loser.R;
 import com.loser.photograph.dialog.IDialogControl;
+import com.loser.photograph.interfaces.IUiInterface;
 import com.loser.photograph.utils.DialogUtils;
 
 
@@ -22,7 +23,7 @@ import com.loser.photograph.utils.DialogUtils;
  * Date				Author	Version 	Desciption
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements IDialogControl {
+public abstract class BaseActivity extends AppCompatActivity implements IDialogControl, IUiInterface {
     private ProgressDialog mWaitDialog;
 
     protected void startActivity(Class<?> clz) {

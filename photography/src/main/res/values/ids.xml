@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="back" type="id" />
+    <item name="bb_bottom_bar_color_id" type="id" />
+    <item name="bb_bottom_bar_appearance_id" type="id" />
+    <item name="expandable_text" type="id" />
+    <item name="expand_collapse" type="id" />
+</resources>

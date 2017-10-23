@@ -3,6 +3,8 @@ package com.loser.photograph.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.squareup.leakcanary.LeakCanary;
+
 /**
  * @version V2.7.0
  * @Project: MyMvp
@@ -26,5 +28,9 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
     }
 }

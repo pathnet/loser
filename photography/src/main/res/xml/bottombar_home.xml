@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        barColorWhenSelected="#ffffff"
+        icon="@mipmap/icon_home"
+        id="@+id/tab_home"
+        title="@string/home" />
+    <tab
+        barColorWhenSelected="#ffffff"
+        icon="@mipmap/icon_home"
+        id="@+id/tab_community"
+        title="@string/community" />
+    <tab
+        barColorWhenSelected="#ffffff"
+        icon="@mipmap/icon_home"
+        id="@+id/tab_theme"
+        title="@string/theme" />
+    <tab
+        barColorWhenSelected="#ffffff"
+        icon="@mipmap/icon_home"
+        id="@+id/tab_my"
+        title="@string/my" />
+</tabs>
