@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/loser.iml" filepath="$PROJECT_DIR$/loser.iml" />
       <module fileurl="file://$PROJECT_DIR$/photography/photography.iml" filepath="$PROJECT_DIR$/photography/photography.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xfragwork/xfragwork.iml" filepath="$PROJECT_DIR$/xfragwork/xfragwork.iml" />
     </modules>
   </component>
 </project>

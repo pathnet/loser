@@ -3,18 +3,15 @@
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/colorMaterial</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:windowBackground">@color/colorBg</item>
+        <item name="android:textColorPrimary">@color/black</item>
     </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
     </style>
-
-    <style name="ImageTranslucentTheme" parent="AppTheme">
-        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
-    </style>
-
     <style name="CustomTabPageIndicator.Text" parent="android:TextAppearance.Medium">
         <item name="android:typeface">monospace</item>
     </style>
@@ -42,4 +39,6 @@
     <style name="BB_BottomBarBadge_Text" parent="TextAppearance.AppCompat.Body2">
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
+    <color name="black">#000000</color>
 </resources>

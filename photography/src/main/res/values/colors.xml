@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--界面背景-->
+    <color name="colorBg">#e5e5e5</color>
+    <!--点击效果-->
+    <color name="colorMaterial">#2396fa</color>
+    <!--text颜色-->
+    <color name="colorAccent">#2396fa</color>
+    <color name="colorPrimary">#2396fa</color>
+    <color name="colorPrimaryDark">@android:color/transparent</color>
     <color name="home_bar_text_normal">#6a6c6f</color>
     <color name="home_bar_text_push">#ff5959</color>
     <color name="textnormal">#adadad</color>
     <color name="btn_bg_pressed_color">#ffacac</color>
     <color name="btn_bg_color">#ff5959</color>
-    <color name="colorPrimary">#2396fa</color>
-    <color name="colorPrimaryDark">#48a2fa</color>
-    <color name="colorAccent">#FF4081</color>
     <color name="bb_inActiveBottomBarItemColor">#747474</color>
     <color name="red">#ff0000</color>
     <color name="white">#ffffff</color>

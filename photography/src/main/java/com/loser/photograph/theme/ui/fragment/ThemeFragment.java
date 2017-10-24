@@ -5,15 +5,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.loser.R;
-import com.loser.photograph.base.BaseFragment;
-import com.loser.photograph.base.BasePresenter;
+import com.loser.photograph.home.presenter.HomeFragmentPresenter;
+import com.loser.photograph.home.view.IHomeFragmentView;
+import com.xfragwork.xfragwork.base.fragment.BaseFragment;
 
-import butterknife.BindView;
-
-public class ThemeFragment extends BaseFragment {
-    @BindView(R.id.tv_name)
+public class ThemeFragment extends BaseFragment<IHomeFragmentView, HomeFragmentPresenter> implements IHomeFragmentView {
     TextView mTvName;
-
     public static ThemeFragment instance() {
         return new ThemeFragment();
     }
@@ -25,6 +22,7 @@ public class ThemeFragment extends BaseFragment {
 
     @Override
     public void initView() {
+        mTvName = $(R.id.tv_name);
     }
 
     @Override
@@ -41,10 +39,9 @@ public class ThemeFragment extends BaseFragment {
     public void processClick(View v) {
 
     }
-
     @NonNull
     @Override
-    public BasePresenter createPresenter() {
-        return null;
+    public HomeFragmentPresenter createPresenter() {
+        return new HomeFragmentPresenter(this);
     }
 }

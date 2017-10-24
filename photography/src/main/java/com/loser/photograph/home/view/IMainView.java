@@ -1,6 +1,7 @@
 package com.loser.photograph.home.view;
 
-import com.loser.photograph.base.IBaseView;
+
+import com.xfragwork.xfragwork.base.view.IBaseView;
 
 /**
  * @version V2.7.0

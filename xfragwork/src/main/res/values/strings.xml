@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">XFragwork</string>
+    <string name="call_phone">没有拨打电话的权限</string>
+    <string name="request_data">数据请求中，请稍等!!!</string>
+</resources>

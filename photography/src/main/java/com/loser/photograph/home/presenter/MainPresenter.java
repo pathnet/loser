@@ -1,7 +1,7 @@
 package com.loser.photograph.home.presenter;
 
-import com.loser.photograph.base.BasePresenter;
 import com.loser.photograph.home.view.IMainView;
+import com.xfragwork.xfragwork.base.presenter.BasePresenter;
 
 /**
  * @version V2.7.0

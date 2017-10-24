@@ -1,2 +1,1 @@
-include ':photography'
-include ':XAndroidFrawork:xfragwork'
+include ':photography', ':xfragwork'
