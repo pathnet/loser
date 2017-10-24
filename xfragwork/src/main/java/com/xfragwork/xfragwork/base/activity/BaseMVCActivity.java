@@ -8,17 +8,13 @@ import android.support.v7.app.ActionBar;
 import android.view.View;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.xfragwork.xfragwork.base.presenter.BasePresenter;
-import com.xfragwork.xfragwork.base.view.IBaseDelegate;
-import com.xfragwork.xfragwork.base.view.IBaseView;
 
-public abstract class BaseMVPActivity<V extends IBaseView, P extends BasePresenter<V>> extends BaseActivity implements IBaseDelegate<V, P> {
+public abstract class BaseMVCActivity extends BaseActivity {
     public Context mContext;
-    protected P mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = createPresenter();
         mContext = this;
         setContentView(getLayoutId());
         setStatusBar();
@@ -27,6 +23,7 @@ public abstract class BaseMVPActivity<V extends IBaseView, P extends BasePresent
         regCommonBtn();
         initListener();
     }
+
     public void setStatusBar() {
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
@@ -43,16 +40,5 @@ public abstract class BaseMVPActivity<V extends IBaseView, P extends BasePresent
         if (actionBar != null) {
             actionBar.hide();
         }
-    }
-
-    @Override
-    public P getPresenter() {
-        return mPresenter;
-    }
-
-    @Override
-    protected void onDestroy() {
-        mPresenter.detachView();
-        super.onDestroy();
     }
 }

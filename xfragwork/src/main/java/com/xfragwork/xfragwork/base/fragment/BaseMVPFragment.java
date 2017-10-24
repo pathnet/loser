@@ -8,13 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xfragwork.R;
+import com.xfragwork.xfragwork.base.presenter.BasePresenter;
+import com.xfragwork.xfragwork.base.view.IBaseDelegate;
+import com.xfragwork.xfragwork.base.view.IBaseView;
 import com.xfragwork.xfragwork.interfaces.IUiInterface;
 
 
-public abstract class BaseFragment extends Fragment implements IUiInterface, View.OnClickListener {
+public abstract class BaseMVPFragment<V extends IBaseView, P extends BasePresenter<V>> extends Fragment implements IBaseDelegate<V, P>, IUiInterface, View.OnClickListener {
 
     public View mView;
     public Context mContext;
+    protected P mPresenter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
@@ -25,6 +30,7 @@ public abstract class BaseFragment extends Fragment implements IUiInterface, Vie
         regCommonBtn();
         return mView;
     }
+
     /**
      * 返回viewId引用的view
      */
@@ -35,12 +41,18 @@ public abstract class BaseFragment extends Fragment implements IUiInterface, Vie
     /**
      * 处理所有的返回键
      */
-    public void regCommonBtn() {
+    private void regCommonBtn() {
         View view = $(R.id.back);
         if (view != null) {
             view.setOnClickListener(this);
         }
     }
+
+    @Override
+    public P getPresenter() {
+        return mPresenter;
+    }
+
     @Override
     public void onClick(View v) {
         // 把在多个界面间都存在的点击，统一处理掉
@@ -51,4 +63,15 @@ public abstract class BaseFragment extends Fragment implements IUiInterface, Vie
         }
     }
 
+    public void showEmpty() {
+
+    }
+
+    public void showLoading() {
+
+    }
+
+    public void dismiss() {
+
+    }
 }

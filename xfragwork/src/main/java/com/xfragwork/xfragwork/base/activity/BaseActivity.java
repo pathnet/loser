@@ -23,7 +23,7 @@ import com.xfragwork.xfragwork.utils.DialogUtils;
  * Date				Author	Version 	Desciption
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements IDialogControl, IUiInterface {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener, IDialogControl, IUiInterface {
     private ProgressDialog mWaitDialog;
 
     protected void startActivity(Class<?> clz) {
@@ -31,6 +31,25 @@ public abstract class BaseActivity extends AppCompatActivity implements IDialogC
         startActivity(intent);
     }
 
+    /**
+     * 处理所有的返回键
+     */
+    public void regCommonBtn() {
+        View view = $(R.id.back);
+        if (view != null) {
+            view.setOnClickListener(this);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        // 把在多个界面间都存在的点击，统一处理掉
+        if (v.getId() == R.id.back) {
+            getFragmentManager().popBackStack();
+        } else {
+            processClick(v);
+        }
+    }
     /**
      * 子类抽取至父类
      */
@@ -41,6 +60,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IDialogC
         }
     }
 
+    /**
+     * 返回viewId引用的view
+     */
+    protected <T extends View> T $(int viewId) {
+        return (T) findViewById(viewId);
+    }
     /**
      * 子类返回空状态布局
      *
