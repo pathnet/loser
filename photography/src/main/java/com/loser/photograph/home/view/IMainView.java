@@ -1,6 +1,7 @@
 package com.loser.photograph.home.view;
 
 
+import com.loser.photograph.home.model.MainBean;
 import com.xfragwork.xfragwork.base.view.IBaseView;
 
 /**
@@ -16,4 +17,5 @@ import com.xfragwork.xfragwork.base.view.IBaseView;
  */
 
 public interface IMainView extends IBaseView {
+    void showData(MainBean param);
 }

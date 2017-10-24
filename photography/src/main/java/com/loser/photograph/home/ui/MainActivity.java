@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.loser.R;
+import com.loser.photograph.home.model.MainBean;
 import com.loser.photograph.home.presenter.MainPresenter;
 import com.loser.photograph.home.view.IMainView;
 import com.wakehao.bar.BottomNavigationBar;
@@ -29,17 +30,25 @@ public class MainActivity extends BaseMVPActivity<IMainView, MainPresenter> impl
 
     @Override
     public void initView() {
+        mBnBar = $(R.id.bar);
+        mToolbar = $(R.id.toolbar);
         mBnBar = findViewById(R.id.bar);
-        mToolbar = findViewById(R.id.toolbar);
+    }
 
+    @Override
+    public void initData() {
         mToolbar.setVisibility(View.GONE);
-        mBnBar = findViewById(R.id.bar);
+        getPresenter().loadData();
         mBnBar.showNum(0, 80);
         mBnBar.showNum(1, 100);
         mBnBar.showNum(2, -2);
         mBnBar.disMissNum(3);
     }
 
+    @Override
+    public void processClick(View v) {
+
+    }
     @Override
     public void initListener() {
         mBnBar.setOnNavigationItemSelectedListener(new BottomNavigationBar.OnNavigationItemSelectedListener() {
@@ -76,16 +85,8 @@ public class MainActivity extends BaseMVPActivity<IMainView, MainPresenter> impl
                 //连续点击了同一个reSelectedPosition位置的item
             }
         });
-    }
 
-    @Override
-    public void initData() {
     }
-
-    @Override
-    public void processClick(View v) {
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != RESULT_OK || requestCode != 1) return;
@@ -94,4 +95,19 @@ public class MainActivity extends BaseMVPActivity<IMainView, MainPresenter> impl
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+
+    /**
+     * 返回BottomNavigationBar 对象
+     *
+     * @return
+     */
+    public BottomNavigationBar getBnBar() {
+        return mBnBar;
+    }
+
+
+    @Override
+    public void showData(MainBean param) {
+
+    }
 }

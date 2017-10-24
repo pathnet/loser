@@ -1,5 +1,7 @@
 package com.loser.photograph.home.presenter;
 
+import com.loser.photograph.home.model.MainBean;
+import com.loser.photograph.home.model.MainModel;
 import com.loser.photograph.home.view.IMainView;
 import com.xfragwork.xfragwork.base.presenter.BasePresenter;
 
@@ -16,7 +18,19 @@ import com.xfragwork.xfragwork.base.presenter.BasePresenter;
  */
 
 public class MainPresenter extends BasePresenter<IMainView> {
+
+    private MainModel mMainModel;
+
     public MainPresenter(IMainView mView) {
         super(mView);
+        mMainModel = new MainModel(this);
+    }
+
+    public void loadData() {
+        mMainModel.loadData();
+    }
+
+    public void showData(MainBean param) {
+        mView.showData(param);
     }
 }
