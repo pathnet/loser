@@ -7,9 +7,9 @@ import android.widget.TextView;
 import com.loser.R;
 import com.loser.photograph.home.presenter.HomeFragmentPresenter;
 import com.loser.photograph.home.view.IHomeFragmentView;
-import com.xfragwork.xfragwork.base.fragment.BaseFragment;
+import com.xfragwork.xfragwork.base.fragment.BaseMVPFragment;
 
-public class ThemeFragment extends BaseFragment<IHomeFragmentView, HomeFragmentPresenter> implements IHomeFragmentView {
+public class ThemeFragment extends BaseMVPFragment<IHomeFragmentView, HomeFragmentPresenter> implements IHomeFragmentView {
     TextView mTvName;
     public static ThemeFragment instance() {
         return new ThemeFragment();
