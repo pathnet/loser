@@ -37,21 +37,22 @@ public abstract class BaseNetwork<T> {
      * service实例
      */
     private static IBaseService mBaseService;
+    public Retrofit mRetrofit;
 
     /**
      * 初始化service
      */
     public BaseNetwork(String baseUrl, Class<IBaseService> service) {
-        Retrofit retrofit = new Retrofit.Builder()
+        //用于返回Rxjava调用,非必须
+        mRetrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(getClient())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//用于返回Rxjava调用,非必须
                 .build();
-        mBaseService = retrofit.create(service);
+        mBaseService = mRetrofit.create(service);
     }
-
     /**
      * 返回service
      *
