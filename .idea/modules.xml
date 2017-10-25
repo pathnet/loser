@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/loser.iml" filepath="$PROJECT_DIR$/loser.iml" />
+      <module fileurl="file://D:\workspace\android_studio\loser3\loser.iml" filepath="D:\workspace\android_studio\loser3\loser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loser3.iml" filepath="$PROJECT_DIR$/loser3.iml" />
       <module fileurl="file://$PROJECT_DIR$/photography/photography.iml" filepath="$PROJECT_DIR$/photography/photography.iml" />
       <module fileurl="file://$PROJECT_DIR$/xfragwork/xfragwork.iml" filepath="$PROJECT_DIR$/xfragwork/xfragwork.iml" />
     </modules>
