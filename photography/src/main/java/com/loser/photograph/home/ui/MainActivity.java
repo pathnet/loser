@@ -38,7 +38,7 @@ public class MainActivity extends BaseMVPActivity<IMainView, MainPresenter> impl
     @Override
     public void initData() {
         mToolbar.setVisibility(View.GONE);
-        getPresenter().loadData();
+//        getPresenter().loadData();
         mBnBar.showNum(0, 80);
         mBnBar.showNum(1, 100);
         mBnBar.showNum(2, -2);
