@@ -3,25 +3,6 @@ apply from: '../dependencies.gradle'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
 
-def loadSigningConfigs() {
-    def Properties props = new Properties()
-    def propFile = file('../signing.properties')
-    if (propFile.canRead()) {
-        props.load(new FileInputStream(propFile))
-        if (props != null && props.containsKey('RELEASE_STORE_FILE') && props.containsKey('RELEASE_STORE_PASSWORD') &&
-                props.containsKey('RELEASE_KEY_ALIAS') && props.containsKey('RELEASE_KEY_PASSWORD')) {
-            android.signingConfigs.release.storeFile = file(props['RELEASE_STORE_FILE'])
-            android.signingConfigs.release.storePassword = props['RELEASE_STORE_PASSWORD']
-            android.signingConfigs.release.keyAlias = props['RELEASE_KEY_ALIAS']
-            android.signingConfigs.release.keyPassword = props['RELEASE_KEY_PASSWORD']
-        } else {
-            android.buildTypes.release.signingConfig = null
-        }
-    } else {
-        android.buildTypes.release.signingConfig = null
-    }
-}
-
 Properties props = new Properties()
 props.load(new FileInputStream(file("../signing.properties")))
 android {
@@ -47,34 +28,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-    }
-    signingConfigs {
-        release {
-            storeFile file(props['RELEASE_STORE_FILE'])
-            keyAlias props['RELEASE_KEY_ALIAS']
-            storePassword props['RELEASE_STORE_PASSWORD']
-            keyPassword props['RELEASE_KEY_PASSWORD']  //签名密码
-        }
-        debug {
-            storeFile file(props['RELEASE_STORE_FILE'])      //签名文件
-            keyAlias props['RELEASE_KEY_ALIAS']
-            storePassword props['RELEASE_STORE_PASSWORD']
-            keyPassword props['RELEASE_KEY_PASSWORD']  //签名密码
-        }
-    }
-    loadSigningConfigs()
-    buildTypes {
-        release {
-            debuggable true
-            minifyEnabled true
-            shrinkResources true
-            zipAlignEnabled true
-            signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-        debug {
-            signingConfig signingConfigs.release
-        }
     }
 }
 dependencies {
