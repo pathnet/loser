@@ -29,8 +29,8 @@ def loadSigningConfigs() {
 Properties props = new Properties()
 props.load(new FileInputStream(file("signing.properties")))
 android {
-    compileSdkVersion 14
-    buildToolsVersion '25.0.0'
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
     defaultConfig {
         applicationId "com.loser"
         minSdkVersion versions.minSdk
