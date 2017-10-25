@@ -4,7 +4,7 @@ ext.versions = [
         buildTools        : '26.0.1',
         publishVersion    : '0.9.4.7',
         publishVersionCode: 177,
-        gradlePlugin      : '3.5.0',
+        gradlePlugin      : '2.3.3',
         spotlessPlugin    : '3.5.1',
 
         supportLib        : '26.0.1',
