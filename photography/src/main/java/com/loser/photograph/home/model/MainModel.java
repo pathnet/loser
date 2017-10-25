@@ -13,12 +13,10 @@ import java.util.HashMap;
 public class MainModel extends BaseModel<MainPresenter> {
     public MainModel(MainPresenter presenter) {
         super(presenter);
-
     }
-
     public void loadData() {
         HashMap<String, String> map = new HashMap<>();
         map.put("测试", "测试");
-        NetUtils.getService().post(map);
+        new NetUtils().test();
     }
 }
