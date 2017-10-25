@@ -24,23 +24,17 @@ public class NetUtils extends BaseNetwork {
     /**
      * 设置url及指定service
      */
-    private NetUtils() {
+    public NetUtils() {
         super(IUrl.BASE_URL, INetService.class);
     }
-
     /**
      * 方法例子
-     *
-     * @param month
-     * @param day
      * @return
      */
-    public static Observable<ResponseBody> test(String month, String day) {
+    public Observable<ResponseBody> test() {
         Map<String, String> map = new HashMap<>();
         map.put("key", "7ac7e02ff7f1f8f1ccdc2f9e5dddb6be");
         map.put("v", "1.0");
-        map.put("month", month);
-        map.put("day", day);
         return getService().post(map);
     }
 
