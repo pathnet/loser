@@ -54,7 +54,6 @@ freeline.py
 freeline/
 freeline_project_description.json
 photography/libs/
-photography/src/main/java/com/loser/photograph/camera/
 photography/src/main/java/com/loser/photograph/community/model/
 photography/src/main/java/com/loser/photograph/community/presenter/
 photography/src/main/java/com/loser/photograph/community/view/
@@ -66,3 +65,4 @@ photography/src/main/java/com/loser/photograph/theme/presenter/
 photography/src/main/java/com/loser/photograph/theme/view/
 xfragwork/src/main/java/com/xfragwork/xfragwork/base/adpter/
 xfragwork/src/main/res/drawable/
+photography/src/main/java/com/loser/photograph/camera/
