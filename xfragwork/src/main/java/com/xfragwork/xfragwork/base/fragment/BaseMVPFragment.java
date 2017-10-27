@@ -22,6 +22,7 @@ public abstract class BaseMVPFragment<V extends IBaseView, P extends BasePresent
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mPresenter = createPresenter();
         mContext = getActivity();
         mView = View.inflate(getActivity(), getLayoutId(), null);
         initView();

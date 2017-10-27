@@ -36,14 +36,12 @@ public abstract class BaseNetwork<T> {
     /**
      * service实例
      */
-    private static IBaseService mBaseService;
+    public T mBaseService;
     public Retrofit mRetrofit;
-
     /**
      * 初始化service
      */
-    public BaseNetwork(String baseUrl, Class<IBaseService> service) {
-        //用于返回Rxjava调用,非必须
+    public BaseNetwork(String baseUrl, Class<T> service) {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(getClient())
@@ -58,10 +56,9 @@ public abstract class BaseNetwork<T> {
      *
      * @return
      */
-    public static IBaseService getService() {
+    public T getService() {
         return mBaseService;
     }
-
     /**
      * 头信息设置
      *

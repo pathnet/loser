@@ -3,12 +3,6 @@ package com.loser.photograph.network;
 import com.loser.photograph.constants.IUrl;
 import com.xfragwork.xfragwork.network.BaseNetwork;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import io.reactivex.Observable;
-import okhttp3.ResponseBody;
-
 /**
  * @version V2.7.0
  * @Project: BCS-Android
@@ -21,21 +15,25 @@ import okhttp3.ResponseBody;
  * Date				Author	Version 	Desciption
  */
 public class NetUtils extends BaseNetwork {
-    /**
-     * 设置url及指定service
-     */
-    public NetUtils() {
-        super(IUrl.BASE_URL, INetService.class);
-    }
-    /**
-     * 方法例子
-     * @return
-     */
-    public Observable<ResponseBody> test() {
-        Map<String, String> map = new HashMap<>();
-        map.put("key", "7ac7e02ff7f1f8f1ccdc2f9e5dddb6be");
-        map.put("v", "1.0");
-        return getService().post(map);
+    private static NetUtils mNetUtils;
+
+    private NetUtils(String baseUrl, Class<INetService> iNetServiceClass) {
+        super(baseUrl, iNetServiceClass);
     }
 
+    public static NetUtils getInstance() {
+        if (mNetUtils == null) {
+            synchronized (NetUtils.class) {
+                if (mNetUtils == null) {
+                    mNetUtils = new NetUtils(IUrl.BASE_URL, INetService.class);
+                }
+            }
+        }
+        return mNetUtils;
+    }
+
+    @Override
+    public INetService getService() {
+        return (INetService) super.getService();
+    }
 }

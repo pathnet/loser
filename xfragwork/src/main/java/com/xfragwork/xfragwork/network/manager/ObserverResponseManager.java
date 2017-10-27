@@ -3,7 +3,8 @@ package com.xfragwork.xfragwork.network.manager;
 
 import com.xfragwork.xfragwork.base.application.BaseApplication;
 import com.xfragwork.xfragwork.base.presenter.BasePresenter;
-import com.xfragwork.xfragwork.network.exception.ApiException;
+import com.xfragwork.xfragwork.network.exception.ErrorHandler;
+import com.xfragwork.xfragwork.network.exception.ErrorResponseBean;
 import com.xfragwork.xfragwork.network.exception.Result;
 import com.xfragwork.xfragwork.utils.ToastUtil;
 
@@ -47,11 +48,9 @@ public abstract class ObserverResponseManager<T> extends DefaultObserver<T> {
     public void onError(Throwable e) {
         mIPresenter.onDismiss();
         mIPresenter.showEmpty();
-        if (e instanceof ApiException) {
-            onError((ApiException) e);
-        } else {
-            onError(new ApiException(e, 123));
-        }
+        ErrorResponseBean errorMessage = ErrorHandler.getErrorMessage(e);
+        onError(errorMessage);
+        onError(errorMessage.getCode(), errorMessage.getErrorMessage());
     }
 
     @Override
@@ -63,16 +62,24 @@ public abstract class ObserverResponseManager<T> extends DefaultObserver<T> {
     }
 
     /**
-     * 请求成功
+     * 返回错误码及错误信息【重写此方法,无需再处理错误提示信息】
      *
+     * @param errorCode
+     * @param errorMsg
+     */
+    public void onError(int errorCode, String errorMsg) {
+
+    }
+    /**
+     * 请求成功
      * @param responseBody
      */
     public abstract void onSuccessful(T responseBody);
 
     /**
-     * 错误回调
+     * 统一管理错误提示
      */
-    private void onError(ApiException ex) {
-        ToastUtil.showToast(BaseApplication.getContext(), ex.getDisplayMessage());
+    private void onError(ErrorResponseBean ex) {
+        ToastUtil.showToast(BaseApplication.getContext(), ex.getCode() + ex.getErrorMessage());
     }
 }

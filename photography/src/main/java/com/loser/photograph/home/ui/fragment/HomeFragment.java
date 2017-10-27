@@ -15,10 +15,10 @@ import com.xfragwork.xfragwork.base.fragment.BaseMVPFragment;
 
 public class HomeFragment extends BaseMVPFragment<IHomeFragmentView, HomeFragmentPresenter> implements IHomeFragmentView {
     TextView mTvName;
+
     public static HomeFragment instance() {
         return new HomeFragment();
     }
-
     @NonNull
     @Override
     public HomeFragmentPresenter createPresenter() {
@@ -37,7 +37,7 @@ public class HomeFragment extends BaseMVPFragment<IHomeFragmentView, HomeFragmen
 
     @Override
     public void initListener() {
-
+        mTvName.setOnClickListener(v -> getPresenter().loadData());
     }
 
     @Override
